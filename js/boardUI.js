@@ -1,4 +1,6 @@
-function UI() {}
+function UI(name) {
+  this.name = name;
+}
 
 UI.prototype.initializeBoard = () => {
   this.board = new Board();
@@ -62,9 +64,15 @@ UI.prototype.checkForWin = () => {
       if (this.board.player === 'O') {
         $('p.message').text('Winner!');
         $('#finish').addClass('screen-win-one');
+        if (ui.name) {
+          $('p.message').text(`Congratulations ${ui.name}`);
+        }
       } else {
         $('p.message').text('Winner!');
         $('#finish').addClass('screen-win-two');
+        if (ui.name) {
+          $('p.message').text(`Better Luck Next Time, ${ui.name}`)
+        }
       }
     } else {
       $('p.message').text('It\'s A Tie!');

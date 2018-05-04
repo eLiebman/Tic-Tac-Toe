@@ -25,8 +25,8 @@ const page = {
     $('#finish').removeClass('screen-win-one').removeClass('screen-win-two').removeClass('screen-win-tie');
   },
   appendUserName: () => {
-    const name = $('input').val();
-    $('.board header').after($(`<span class="name">Welcome ${name}</span>`));
+    ui.name = $('input').val();
+    $('.board header').after($(`<span class="name">Welcome ${ui.name}</span>`));
   },
   checkForm: () => {
     // Warnings
@@ -72,6 +72,7 @@ $('.twoP').on('click', function() {
   // Reset Single Player Form
   $('input').val('');
   $('.diff').removeClass('diff-active');
+  ui.name = undefined;
 });
 // One Player Game, go to difficultySelect screen
 $('.oneP').on('click', function() {
