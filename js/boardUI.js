@@ -10,11 +10,11 @@ UI.prototype.initializeBoard = () => {
     .css('background-image', 'none');
   $('.board header').next('.name').remove();
   return board;
-}
+};
 
 UI.prototype.filled = (box) => {
   return $(box).hasClass('box-filled-1') || $(box).hasClass('box-filled-2');
-}
+};
 
 UI.prototype.fillBox = (box) => {
     if(this.board.player === 'O') {
@@ -23,7 +23,7 @@ UI.prototype.fillBox = (box) => {
       $(box).addClass('box-filled-2').css('background-image', "url('img/x.svg')");
     }
     this.board.fillBox($(box).index());
-}
+};
 
 UI.prototype.changePlayer = () => {
   this.board.changePlayer();
@@ -34,27 +34,27 @@ UI.prototype.changePlayer = () => {
     $('#player1').addClass('active');
     $('#player2').removeClass('active');
   }
-}
+};
 
 UI.prototype.computerOn = (diff) => {
   this.board.computerOn();
   this.board.setDifficulty(diff);
-}
+};
 
 UI.prototype.computersTurn = () => {
   return (this.board.player === 'X' && board.computer);
-}
+};
 
 UI.prototype.computerPlay = () => {
   const boxIndex = this.board.play();
   const box = $('.box')[boxIndex];
   UI.prototype.fillBox(box);
-}
+};
 
 UI.prototype.setDifficulty = () => {
   let diff = $('.diff-active').attr('id');
   UI.prototype.computerOn(diff);
-}
+};
 
 UI.prototype.checkForWin = () => {
   if (this.board.winner() || this.board.tie()) {
@@ -80,7 +80,7 @@ UI.prototype.checkForWin = () => {
     }
   }
   return this.board.winner() || this.board.tie();
-}
+};
 
 UI.prototype.playGame = (e) => {
   let box = e.target;
@@ -102,4 +102,4 @@ UI.prototype.playGame = (e) => {
       }
     }, 1300);
   }
-}
+};

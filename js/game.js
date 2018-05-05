@@ -110,7 +110,7 @@ $('.play').on('click', function() {
 ------------ Box Hover --------------
 -----------------------------------*/
 $('.box').hover(function(e) {
-  if(!UI.prototype.filled(e.target))  {
+  if(!ui.filled(e.target))  {
     $(e.target).css("background-image", e.type==='mouseenter'?`url(img/${board.player}.svg)`:'none');
   }
 });
